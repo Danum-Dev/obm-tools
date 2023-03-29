@@ -1,7 +1,7 @@
 name: obm_tools
-description: A new Flutter package project.
+description: Package that contains many tools for the application.
 version: 0.0.1
-homepage:
+homepage: https://github.com/Danum-Dev/obm-tools
 
 environment:
   sdk: '>=2.19.4 <3.0.0'
@@ -10,7 +10,12 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-
+  timezone: ^0.9.1
+  connectivity_plus: ^3.0.3
+  http: ^0.13.5
+  intl: ^0.18.0
+  dropdown_search: ^5.0.6
+  
 dev_dependencies:
   flutter_test:
     sdk: flutter
