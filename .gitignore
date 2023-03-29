@@ -4,9 +4,6 @@ pubspec.lock
 *.log
 .pyc
 .swp
-.env_staging
-.env_production
-env/
 .DS_Store
 .atom/
 .buildlog/
