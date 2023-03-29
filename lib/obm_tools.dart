@@ -7,33 +7,28 @@ import 'package:dropdown_search/dropdown_search.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:intl/intl.dart';
+import 'package:timezone/data/latest.dart' as tzl;
 import 'package:timezone/timezone.dart' as tz;
 import 'package:http/http.dart' as http;
 
 /// That contains many tools for the application.
 class ObmTools {
   /// Find [Location] by its timezone name
-  getDateTime() async {
-    final detroit = tz.getLocation('Asia/Jakarta');
+  getDateTime(String? timeZone) {
+    tzl.initializeTimeZones();
+    final detroit = tz.getLocation(timeZone ?? 'Asia/Jakarta');
     var now = tz.TZDateTime.now(detroit);
     return now;
   }
 
   /// Check device internet connection
-  Future<bool> connection() async {
+  Future<ConnectivityResult?> connection() async {
     final connectivityResult = await Connectivity().checkConnectivity();
-    switch (connectivityResult) {
-      case ConnectivityResult.mobile:
-        return true;
-      case ConnectivityResult.wifi:
-        return true;
-      default:
-        return false;
-    }
+    return connectivityResult;
   }
 
   /// Get IP Address
-  getIpAddress() async {
+  Future<String?> getIpAddress() async {
     try {
       final url = Uri.parse('https://api.ipify.org');
       final response = await http.get(url);
@@ -573,7 +568,7 @@ class ObmTextFormField extends StatelessWidget {
               ),
               hintText: hintText ?? 'Form',
               hintStyle: TextStyle(
-                color: hintTextColor ?? Colors.grey.withOpacity(0.2),
+                color: hintTextColor ?? Colors.grey.withOpacity(0.7),
                 fontSize: 16.0,
                 fontWeight: FontWeight.w400,
                 fontStyle: FontStyle.italic,
@@ -637,7 +632,7 @@ class ObmTextFormField extends StatelessWidget {
               ),
               hintText: hintText ?? 'Form',
               hintStyle: TextStyle(
-                color: hintTextColor ?? Colors.grey.withOpacity(0.2),
+                color: hintTextColor ?? Colors.grey.withOpacity(0.7),
                 fontSize: 16.0,
                 fontWeight: FontWeight.w400,
                 fontStyle: FontStyle.italic,
