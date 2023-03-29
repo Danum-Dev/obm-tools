@@ -1,6 +1,6 @@
 name: obm_tools
 description: Package that contains many tools for the application.
-version: 0.0.1
+version: 0.0.2
 homepage: https://github.com/Danum-Dev/obm-tools
 
 environment:
