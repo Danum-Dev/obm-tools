@@ -25,6 +25,15 @@ import 'package:obm_tools/obm_tools.dart';
 ```
 ## Usage
 
+### get screen size
+```dart
+// Screen Size High
+double height = ScreenSize(context).height;
+
+// Screen Size Width
+double width = ScreenSize(context).width;
+```
+
 ### get time by timezone
 ```dart
 getTimeZone() {
