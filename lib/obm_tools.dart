@@ -473,6 +473,16 @@ class ObmButton extends StatelessWidget {
   }
 }
 
+/// Get screen size (double)
+class ScreenSize {
+  BuildContext context;
+
+  ScreenSize(this.context);
+
+  double get width => MediaQuery.of(context).size.width;
+  double get height => MediaQuery.of(context).size.height;
+}
+
 /// Custom Text Form Field Widget
 class ObmTextFormField extends StatelessWidget {
   const ObmTextFormField({
